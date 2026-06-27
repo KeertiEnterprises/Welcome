@@ -3,403 +3,619 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Curtains & Blinds</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<title>Keerti Enterprises | Luxury Curtains & Window Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-/* Smooth Scroll Effect */
-html {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+:root {
+    --orange: #ff7a00;
+    --orange2: #ffb347;
+    --dark: #050505;
+    --card: rgba(255, 255, 255, 0.05);
+    --white: #ffffff;
+    --gray: #bdbdbd;
 }
 
-body{
-    background:#f8f8f8;
-    color:#333;
-}
-
-header{
-    background:linear-gradient(135deg,rgba(255, 136, 0, 0.93), #c71818);
-    color:white;
-    padding:15px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    transition: color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-}
-
-/* Nav Links Animation */
-nav a:hover {
-    color: #d4af37;
-    transform: translateY(-2px);
-}
-
-nav a:active {
-    transform: translateY(1px) scale(0.95);
-}
-
-.hero{
-    height:85vh;
-    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-    url('https://i.pinimg.com/736x/5e/ab/12/5eab12c9a2bb7dcc2dcf674e08568fc4.jpg');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
-
-.hero-content h1{
-    font-size:55px;
-    margin-bottom:15px;
-}
-
-.hero-content p{
-    font-size:20px;
-    margin-bottom:25px;
-}
-
-
-.btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:#d4af37;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    margin:5px;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-    transition: all 0.2s ease-in-out;
-}
-
-/* Button Hover State */
-.btn:hover {
-    background: #bfa032;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-
-/* Button Click/Press State (The Magic Element) */
-.btn:active {
-    transform: translateY(1px) scale(0.95);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-section{
-    padding:70px 8%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:36px;
-    color:#0d2b45;
-}
-
-.grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card h3{
-    padding:15px;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
-}
-
-.feature-box{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-}
-
-/* .gallery img{ 
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
-
-    height:250px;
-    width: 330px;
-    border-radius:10px;
-} */
-
-
-.contact {
-    background: linear-gradient(135deg,rgba(255, 136, 0, 0.93), #c71818);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+body {
+    background: var(--dark);
     color: white;
-    text-align: center;
-    border-radius: 12px;
-    padding: 60px 40px;
+    overflow-x: hidden;
 }
 
-.contact-links {
-    margin-top: 40px;
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, var(--orange), var(--orange2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--orange);
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 5.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(45deg, var(--orange), var(--orange2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, var(--orange), var(--orange2));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 122, 0, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--orange);
+    margin-left: 15px;
+}
+
+/* SECTIONS */
+section {
+    padding: 120px 10%;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* PRODUCT CARD */
+.product {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 90px;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.5s;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px rgba(255, 122, 0, 0.15);
+}
+
+.product img {
+    width: 50%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+.product-content {
+    flex: 1;
+}
+
+.product-content h3 {
+    font-size: 2.2rem;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.product-content p {
+    color: #bbb;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* SERVICES */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.service {
+    background: var(--card);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.4s;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    border-color: var(--orange);
+    box-shadow: 0 0 30px rgba(255, 122, 0, 0.15);
+}
+
+.service h3 {
+    margin-bottom: 15px;
+    color: var(--orange);
+    font-size: 1.3rem;
+}
+
+.service p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* STATS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 80px;
+}
+
+.stat {
+    text-align: center;
+    padding: 35px 20px;
+    background: rgba(255, 122, 0, 0.05);
+    border: 1px solid rgba(255, 122, 0, 0.2);
+    border-radius: 20px;
+}
+
+.stat h2 {
+    font-size: 3rem;
+    color: var(--orange);
+    font-weight: 800;
+}
+
+.stat p {
+    color: #ddd;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* GALLERY GRID */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255,122,0,0.3);
+}
+
+/* FAQS */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-
-.contact-link {
-    color: #e5e5e5;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 15px 30px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
     gap: 15px;
-    width: 100%;
-    max-width: 550px;
+}
+
+details {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--orange); font-size: 1.5rem; line-height: 1; }
+details[open] summary::after { content: "-"; }
+
+details p {
+    margin-top: 15px;
+    color: #aaa;
+    line-height: 1.7;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* CONTACT */
+.contact-box {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 30px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(15px);
+}
+
+.contact-box h3 { font-size: 2.5rem; color: white; margin-bottom: 10px;}
+.contact-box p { color: #aaa; margin-bottom: 40px; }
+
+.contact-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.contact-item h4 { color: var(--orange); margin-bottom: 5px; }
+.contact-item p, .contact-item a { color: #ddd; text-decoration: none; }
+
+footer {
+    padding: 40px;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+    z-index: 9999;
+    transition: 0.3s;
 }
 
-.contact-link:hover {
-    background: rgba(212, 175, 55, 0.08);
-    border-color: #d4af37;
-    color: #d4af37;
-    transform: translateX(5px);
-}
-footer{
-     background: linear-gradient(135deg,rgba(255, 136, 0, 0.93), #c71818);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    color:white;
-    text-align:center;
-    /* padding:15px; */
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
 }
 
-@media(max-width:768px){
-.hero-content h1{
-font-size:36px;
+.whatsapp-float svg {
+    width: 38px;
+    height: 38px;
+    fill: white;
 }
+
+/* RESPONSIVE BREAKPOINTS */
+@media(max-width: 950px) {
+    .menu-toggle { display: block; }
+    
+    nav ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 260px;
+        height: calc(100vh - 80px);
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(25px);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav ul.active { right: 0; }
+    
+    .hero-content h1 { font-size: 3.2rem; }
+    .hero-content p { font-size: 1.1rem; }
+    .btn-secondary { margin: 15px 0 0 0; display: block; }
+    
+    .product { flex-direction: column; padding: 20px; }
+    .product:nth-of-type(2) { flex-direction: column; } /* Override stack flip */
+    .product img { width: 100%; height: 260px; }
+    
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 80px 6%; }
+}
+
+@media(max-width: 500px) {
+    .stats { grid-template-columns: 1fr; }
+    .contact-details { flex-direction: column; text-align: center; }
 }
 </style>
+</head>
 
 <body>
 
-<header>
-    <div class="logo">KEERTI ENTERPRISES</div>
-    <nav>
-        <!-- Linked with Sections IDs for smooth scroll -->
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+<nav>
+    <div class="logo">KEERTI <span style="color:white; font-size:16px; font-weight:400;">Enterprises</span></div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-menu">
+        <li><a href="#" onclick="toggleMenu()">Home</a></li>
+        <li><a href="#products" onclick="toggleMenu()">Products</a></li>
+        <li><a href="#services" onclick="toggleMenu()">Why Us</a></li>
+        <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
+        <li><a href="#faq" onclick="toggleMenu()">FAQs</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+</nav>
 
-<!-- Added ID: home -->
-<section class="hero" id="home">
+<section class="hero">
     <div class="hero-content">
-        <h1>Enterior & Home Decore Solutions</h1>
-        <p>Custom Designs • Perfect Fitting • Affordable Prices</p>
-        <!-- Scroll to Contact Section -->
-        <!-- <a href="#contact" class="btn">Get Free Quote</a> -->
-        <!-- Redirects to WhatsApp (Replace XXXXXXXXXX with your real number) -->
-        <a href="https://wa.me/917275612150?text=Hi,%20I%20want%20to%20know%20more%20about%20your%20curtains%20and%20blinds." target="_blank" class="btn" style="background:#25D366; color:#fff; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">WhatsApp Us</a>
-        <a href="tel:+917275612150" class="btn">Call Now</a>
+        <h1>KEERTI ENTERPRISES</h1>
+        <p>Premium Curtains, Custom Blinds & Luxury Home Decor Solutions in Basti.</p>
+        <div>
+            <a href="#products" class="btn">Explore Catalog</a>
+            <a href="https://wa.me/917275612150?text=Hi,%20I%20want%20to%20book%20a%20Free%20Home%20Inspection%20Visit." target="_blank" class="btn btn-secondary">Book Free Home Visit</a>
+        </div>
     </div>
 </section>
 
-<!-- Added ID: products -->
 <section id="products">
-    <h2 class="section-title">products</h2>
-    <div class="grid">
+    <h2 class="title">Our Premium Categories</h2>
 
-       <div class="card">
-            <img src="https://i.pinimg.com/736x/ce/b4/f4/ceb4f41c74adb4026239359c16a43777.jpg">
-            <h3>Designer Curtains</h3>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800" alt="Designer Curtains">
+        <div class="product-content">
+            <h3>Luxury & Designer Curtains</h3>
+            <p>Transform your living room with imported premium drapes, customized blackout fabrics, and motorized automated curtain tracks engineered for silent gliding.</p>
+            <a href="https://wa.me/917275612150?text=I%20want%20to%20see%20Curtain%20fabrics" target="_blank" class="btn">View Fabric Samples</a>
         </div>
+    </div>
 
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/e4/5c/bf/e45cbff31a9639008bec84c6d62e9d3d.jpg">
-            <h3>Roller Blinds</h3>
+    <div class="product" style="flex-direction: row-reverse;">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800" alt="Roller & Zebra Blinds">
+        <div class="product-content">
+            <h3>Roller & Zebra Blinds</h3>
+            <p>Ergonomic twin-fabric light filtering systems. Effortlessly switch between 100% total daytime privacy and soft, diffused natural daylight with a single pull.</p>
+            <a href="https://wa.me/917275612150?text=I%20want%20to%20see%20Zebra%20Blinds%20catalog" target="_blank" class="btn">Inquire Pricing</a>
         </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/e2/34/1c/e2341cba7904f6bbe56d22af6b1d72c1.jpg">
-            <h3>Zebra Blinds</h3>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/74/e4/95/74e495c71a8bf7ada685ec3a37abdb38.jpg">
-            <h3>Venetian Blinds</h3>
-              
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/ea/04/a2/ea04a2267af6ca8232fbe2b845fc0d20.jpg">
-            <h3>Venetian Blinds</h3>
-        </div>
-        
     </div>
 </section>
 
-<section>
-    <h2 class="section-title">Why Choose Us</h2>
+<section id="services" style="background: rgba(0,0,0,0.3);">
+    <h2 class="title">Why Choose Keerti</h2>
+    <div class="services">
+        <div class="service">
+            <h3>📐 100% Custom Fit</h3>
+            <p>Every window is laser-measured by our team to guarantee zero-gap edge fitting.</p>
+        </div>
+        <div class="service">
+            <h3>🚗 Free Home Visit</h3>
+            <p>We bring the physical fabric swatch books directly to your living room anywhere in Basti.</p>
+        </div>
+        <div class="service">
+            <h3>⚡ Expert Setup</h3>
+            <p>Professional drilling and masonry mounting carried out by our in-house veteran staff.</p>
+        </div>
+        <div class="service">
+            <h3>💎 Premium Build</h3>
+            <p>Heavy-duty clutch mechanisms, UV-resistant threads, and anti-fade treated textiles.</p>
+        </div>
+    </div>
 
-    <div class="features">
-        <div class="feature-box">✅ Custom Measurements</div>
-        <div class="feature-box">✅ Premium Quality</div>
-        <div class="feature-box">✅ Expert Installation</div>
-        <div class="feature-box">✅ Best Prices</div>
+    <div class="stats">
+        <div class="stat"><h2>500+</h2><p>Homes Transformed</p></div>
+        <div class="stat"><h2>100%</h2><p>Custom Measurement</p></div>
+        <div class="stat"><h2>FREE</h2><p>Inspection Visit</p></div>
+        <div class="stat"><h2>5 Day</h2><p>Standard Delivery</p></div>
     </div>
 </section>
 
-<section  id="gallery">
-    <h2 class="section-title">Gallery</h2>
-    <div class="grid">
-
-       <div class="card">
-            <img src="https://i.pinimg.com/736x/ce/b4/f4/ceb4f41c74adb4026239359c16a43777.jpg">
-            <h3>Designer Curtains</h3>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/e4/5c/bf/e45cbff31a9639008bec84c6d62e9d3d.jpg">
-            <h3>Roller Blinds</h3>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/e2/34/1c/e2341cba7904f6bbe56d22af6b1d72c1.jpg">
-            <h3>Zebra Blinds</h3>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/74/e4/95/74e495c71a8bf7ada685ec3a37abdb38.jpg">
-            <h3>Venetian Blinds</h3>
-              
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/ea/04/a2/ea04a2267af6ca8232fbe2b845fc0d20.jpg">
-            <h3>Venetian Blinds</h3>
-        </div>
-        
+<section id="gallery">
+    <h2 class="title">Recent Basti Projects</h2>
+    <div class="gallery-grid">
+        <img src="https://i.pinimg.com/736x/ce/b4/f4/ceb4f41c74adb4026239359c16a43777.jpg" alt="Project 1">
+        <img src="https://i.pinimg.com/736x/e4/5c/bf/e45cbff31a9639008bec84c6d62e9d3d.jpg" alt="Project 2">
+        <img src="https://i.pinimg.com/736x/e2/34/1c/e2341cba7904f6bbe56d22af6b1d72c1.jpg" alt="Project 3">
+        <img src="https://i.pinimg.com/736x/74/e4/95/74e495c71a8bf7ada685ec3a37abdb38.jpg" alt="Project 4">
     </div>
 </section>
 
-<!-- Added ID: gallery -->
-<!-- <section id="gallery">
-    <h2 class="section-title">Gallery</h2>
-
-    <div class="grid gallery">
-         <div class="card">
-            <img src="https://i.pinimg.com/736x/ce/b4/f4/ceb4f41c74adb4026239359c16a43777.jpg">
-            <h3>Designer Curtains</h3>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/e4/5c/bf/e45cbff31a9639008bec84c6d62e9d3d.jpg">
-            <h3>Roller Blinds</h3>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/e2/34/1c/e2341cba7904f6bbe56d22af6b1d72c1.jpg">
-            <h3>Zebra Blinds</h3>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/74/e4/95/74e495c71a8bf7ada685ec3a37abdb38.jpg">
-            <h3>Venetian Blinds</h3>
-              
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/ea/04/a2/ea04a2267af6ca8232fbe2b845fc0d20.jpg">
-            <h3>Venetian Blinds</h3>
-        </div>
-        
-</section> -->
-
-<!-- <section>
-    <h2 class="section-title">Customer Reviews</h2>
-
-    <div class="grid">
-        <div class="review">
-            ⭐⭐⭐⭐⭐ <br><br>
-            Excellent fitting and premium quality curtains.
-        </div>
-
-        <div class="review">
-            ⭐⭐⭐⭐⭐ <br><br>
-            Best curtain and blinds service in the city.
-        </div>
+<section id="faq">
+    <h2 class="title">Got Questions?</h2>
+    <div class="faq-container">
+        <details>
+            <summary>Do you provide free home measurement visits?</summary>
+            <p>Yes, absolutely! We offer a 100% Free Home Visit across Basti district. Our technician takes exact dimensions and lets you feel the physical fabric catalogs in your own home's lighting.</p>
+        </details>
+        <details>
+            <summary>What types of window solutions do you customize?</summary>
+            <p>We manufacture layered Opera Blinds, Dual Zebra Blinds, Sunscreen Roller Blinds, Wooden Venetian Blinds, and high-end pleated living room drapes.</p>
+        </details>
+        <details>
+            <summary>How many days does installation take?</summary>
+            <p>Once you select your design and confirm the fabric order, custom manufacturing and final wall setup are completed within 3 to 5 business days.</p>
+        </details>
     </div>
-</section> -->
+</section>
 
-<!-- Added ID: contact -->
-<section class="contact" id="contact">
-    <h2 class="section-title" style="color: white;">Contact Us</h2>
-    <div class="contact-links">
-        <!-- Click to open Google Maps -->
-        <a class="contact-link" href="https://maps.app.goo.gl/poe3qzGWjSoQBX2S8?g_st=ac" target="_blank">
-            📍 Companybag chauraha, near Press-club, BASTI
-        </a>
+<section id="contact">
+    <div class="contact-box">
+        <h3>Get In Touch</h3>
+        <p>Upgrade your view. Speak to our lead interior consultant today.</p>
         
-        <!-- Click to Call -->
-        <a class="contact-link" href="tel:+917275612150">
-            📞 +91 72756 12150
-        </a>
-        
-        <!-- Click to Email -->
-        <a class="contact-link" href="mailto:keertienterprises151@gmail.com">
-            📧 keertienterprises151@gmail.com
-        </a>
+        <div class="contact-details">
+            <div class="contact-item">
+                <h4>📍 Visit Our Store</h4>
+                <p>Companybag chauraha<br>Near Press-Club, BASTI (U.P)</p>
+            </div>
+            <div class="contact-item">
+                <h4>📞 Direct Call</h4>
+                <a href="tel:+917275612150">+91 72756 12150</a>
+            </div>
+            <div class="contact-item">
+                <h4>📧 Email Us</h4>
+                <a href="mailto:keertienterprises151@gmail.com">keertienterprises151@gmail.com</a>
+            </div>
+        </div>
+
+        <a href="https://wa.me/917275612150?text=Hi,%20I%20would%20like%20to%20schedule%20a%20consultation." target="_blank" class="btn">Start WhatsApp Chat</a>
     </div>
 </section>
 
 <footer>
-    © 2026 KEERTI ENTERPRISES | All Rights Reserved
+    © 2026 Keerti Enterprises Basti. All Rights Reserved.
 </footer>
+
+<a href="https://wa.me/917275612150?text=Hi,%20I%20need%20details%20about%20your%20Blinds/Curtains." class="whatsapp-float" target="_blank" title="Chat with us">
+    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.372-12 12 0 2.09.531 4.053 1.468 5.753l-1.468 5.372 5.534-1.449c1.65.86 3.535 1.344 5.466 1.344 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+/* MOBILE MENU SCRIPT */
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+
+/* 3D STARFIELD BACKGROUND */
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+camera.position.z = 30;
+
+const geometry = new THREE.BufferGeometry();
+
+// Auto-adjust particle count based on device power
+const isMobile = window.innerWidth < 768;
+const count = isMobile ? 1000 : 3500; 
+const positions = [];
+
+for(let i = 0; i < count; i++) {
+    positions.push(
+        (Math.random() - 0.5) * 250,
+        (Math.random() - 0.5) * 250,
+        (Math.random() - 0.5) * 250
+    );
+}
+
+geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+const material = new THREE.PointsMaterial({ size: 0.35, color: 0xffb347 });
+const stars = new THREE.Points(geometry, material);
+scene.add(stars);
+
+window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    stars.rotation.y = s * 0.0003;
+    stars.rotation.x = s * 0.00015;
+});
+
+function animate() {
+    requestAnimationFrame(animate);
+    stars.rotation.y += 0.0004;
+    renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
 
 </body>
 </html>
